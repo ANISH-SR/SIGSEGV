@@ -17,8 +17,8 @@ main(int argc, char *argv[])
         exit(1);
     } else if (rc == 0) {
 	// child: redirect standard output to a file
-	close(STDOUT_FILENO); 
-	open("./p4.output", O_CREAT|O_WRONLY|O_TRUNC, S_IRWXU);
+        close(STDOUT_FILENO); 
+        open("./p4.output", O_CREAT|O_WRONLY|O_TRUNC, S_IRWXU);
 
 	// now exec "wc"...
         char *myargs[3];
@@ -29,7 +29,7 @@ main(int argc, char *argv[])
     } else {
         // parent goes down this path (original process)
         int wc = wait(NULL);
-	assert(wc >= 0);
+	    assert(wc >= 0);
     }
     return 0;
 }
